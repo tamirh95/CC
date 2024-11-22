@@ -94,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         if (response.user != null) {
           // Add custom fields to 'profiles' table
           await Supabase.instance.client.from('clients').insert({
-            'Email':email,
+            'Client_Email':email,
             'UserName': username,
             'First_Name': firstName,
             'Last_Name': lastName,
@@ -121,6 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Sign-up successful! Please log in.')),
           );
+          
           Navigator.pop(context); // Navigate back to the login screen
         } 
       } catch (e) {
