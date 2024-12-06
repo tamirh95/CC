@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'client_home_screen.dart';
-import 'package:intl/intl.dart';
 
 class ClientCompleteScreen extends StatefulWidget {
   final Map<String, dynamic> service;
-  const ClientCompleteScreen({Key? key, required this.service}) : super(key: key);
+  const ClientCompleteScreen({super.key, required this.service});
 
   @override
   State<ClientCompleteScreen> createState() => _ClientCompleteScreenState();
@@ -18,7 +15,7 @@ class _ClientCompleteScreenState extends State<ClientCompleteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.green,centerTitle: true),
+      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.blue,centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -33,6 +30,7 @@ class _ClientCompleteScreenState extends State<ClientCompleteScreen> {
           ),
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

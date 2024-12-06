@@ -2,13 +2,14 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'client_home_screen.dart';
+import 'client_services_screen.dart';
 import 'package:intl/intl.dart';
 
 class BookingScreen extends StatefulWidget {
   final Map<String, dynamic> service;
   final  Map<String, dynamic> serviceHash;
-  const BookingScreen({Key? key, required this.service, required this.serviceHash}) : super(key: key);
+  final  String? selectedValue;
+  const BookingScreen({super.key, required this.service, required this.serviceHash, required this.selectedValue});
 
   @override
   State<BookingScreen> createState() => _BookingScreenState();
@@ -40,6 +41,7 @@ class _BookingScreenState extends State<BookingScreen> {
     
       await Supabase.instance.client.rpc('insert_order_from_client3', params: {
       'client_email': email,
+      'house_id': widget.selectedValue,
       'service_name': widget.service['Service_Name'],
       'booking_time': bookingDateTime.toIso8601String(),
     });
@@ -51,13 +53,13 @@ class _BookingScreenState extends State<BookingScreen> {
     // Return to Home Screen
     widget.serviceHash[widget.service['Service_Name']]['Status']="Scheduled";
     String jsonString=jsonEncode(widget.serviceHash);
-     await supabase.from('clients').update({
-    'Services_To_Do': jsonString
-  }).eq('Client_Email',email.toString());
+     await supabase.from('houses').update({
+    'Services_to_Do': jsonString, 
+  }).eq('House_id',widget.selectedValue.toString());
 
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => const ClientHomeScreen()),
+      MaterialPageRoute(builder: (context) => const ClientServicesScreen()),
       (route) => false, // Remove all routes in the stack
     );
   
@@ -94,7 +96,7 @@ class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.green,centerTitle: true),
+      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.blue,centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -128,6 +130,7 @@ class _BookingScreenState extends State<BookingScreen> {
           ),
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

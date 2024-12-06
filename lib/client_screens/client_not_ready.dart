@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'client_home_screen.dart';
-import 'package:intl/intl.dart';
 
 class NotReadyScreen extends StatefulWidget {
   final Map<String, dynamic> service;
  final  Map<String, dynamic> serviceHash;
-  const NotReadyScreen({Key? key, required this.service, required this.serviceHash}) : super(key: key);
+  const NotReadyScreen({super.key, required this.service, required this.serviceHash});
 
   @override
   State<NotReadyScreen> createState() => _NotReadyScreenState();
@@ -20,7 +17,7 @@ class _NotReadyScreenState extends State<NotReadyScreen> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.green,centerTitle: true),
+      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.blue,centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -35,6 +32,7 @@ class _NotReadyScreenState extends State<NotReadyScreen> {
           ),
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

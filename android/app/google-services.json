@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "522432310223",
+    "project_id": "cascar-89520",
+    "storage_bucket": "cascar-89520.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522432310223:android:403411618a348093f2c0ba",
+        "android_client_info": {
+          "package_name": "com.example.casacare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiyoEfvlZ13HXMMEmFT5GAZcu9XuF1Owk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,6 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.19.0
+  shared_preferences: ^2.3.3
+  firebase_core: ^3.8.1
+  firebase_messaging: ^15.1.6
+  provider: ^6.1.2
+  badges: ^3.1.2
+  
+  
 
   
 dev_dependencies:
@@ -19,4 +26,9 @@ dev_dependencies:
   flutter_lints: ^4.0.0
 
 flutter:
+  assets:
+    - assets/service_placeholder.png
+    - assets/home_page_home.jpg
+    - assets/fake_logo.jpg
   uses-material-design: true
+  

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'client_home_screen.dart';
-import 'package:intl/intl.dart';
 
 class NotSubScreen extends StatefulWidget {
   final Map<String, dynamic> service;
-  const NotSubScreen({Key? key, required this.service}) : super(key: key);
+  const NotSubScreen({super.key, required this.service});
 
   @override
   State<NotSubScreen> createState() => _NotSubScreenState();
@@ -18,7 +15,7 @@ class _NotSubScreenState extends State<NotSubScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.green,centerTitle: true),
+      appBar: AppBar(title: Text(widget.service['Service_Name']),backgroundColor: Colors.blue,centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -37,6 +34,7 @@ class _NotSubScreenState extends State<NotSubScreen> {
           ),
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

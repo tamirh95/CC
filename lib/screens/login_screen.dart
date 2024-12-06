@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'signup_screen.dart';
 import '../client_screens/client_home_screen.dart';
-
+import 'package:provider/provider.dart';
+import '../client_screens/notification_message.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -17,6 +18,7 @@ class LoginScreen extends StatelessWidget {
           email: emailController.text,
           password: passwordController.text,
         );
+        Provider.of<NotificationProvider>(context, listen: false).messages;
         if (response.session != null) {
           Navigator.pushReplacement(
             context,
@@ -30,7 +32,7 @@ class LoginScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Login"), backgroundColor: Colors.green,centerTitle: true),
+      appBar: AppBar(title: const Text("Login"), backgroundColor: Colors.blue,centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -45,6 +47,7 @@ class LoginScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                  
                 );
               },
               child: const Text("Sign Up"),
@@ -52,6 +55,7 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }
