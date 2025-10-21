@@ -21,8 +21,8 @@ Future <void> main() async {
 );
   await FirebasApi().initNotifications();
   await Supabase.initialize(
-    url: 'https://hanfthixsuxjhqetiaja.supabase.co',
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhbmZ0aGl4c3V4amhxZXRpYWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE3MzgyMTMsImV4cCI6MjA0NzMxNDIxM30.u2WCvklAI4VNZ3PNeq_OfM3YDA6vbLFmbi3spLykx74',
+    url: '',
+    anonKey: '',
   );
   await _resetDropdownOnStartup();
     runApp( MyApp());
